@@ -19,13 +19,13 @@ from flair.models import SequenceTagger
 from flask import Flask, jsonify, request
 from flask import Flask
 from flask_cors import CORS, cross_origin
-from city import cities
+# from city import cities
 # load the NER tagger
 
 app = Flask(__name__)
 
-# tagger = Classifier.load('ner-large')
-tagger = SequenceTagger.load('ner-large-model')
+tagger = Classifier.load('ner-large')
+# tagger = SequenceTagger.load('ner-large-model')
 
 
 @app.route('/process_image', methods=['POST'])
@@ -82,8 +82,8 @@ def get_address():
     # # Print the list of texts inside double quotes
     # print(loc_texts_inside_quotes)
 
-    # cities = ["Kolkata", "Bengaluru", "Dehradun",
-    #           "Chennai", "Mumbai", "Alwar", "Jaipur", "Pune"]
+    cities = ["Kolkata", "Bengaluru", "Dehradun",
+              "Chennai", "Mumbai", "Alwar", "Jaipur", "Pune"]
     states = ["Rajasthan", "Karnataka", "Uttarakhand"]
 
     def IndiaExist(temp):
